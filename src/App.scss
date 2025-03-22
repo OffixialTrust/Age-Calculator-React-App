@@ -33,7 +33,7 @@ body {
 
 form {
   @include box($margin: 0 0 80px);
-  height: 140px;
+  height: 160px;
   position: relative;
   border-bottom: 1px solid $light-grey;
   
@@ -52,7 +52,7 @@ form {
     }
 
    img {
-     width: 30px;
+     width: 35px;
    }
   }
 }
@@ -65,7 +65,7 @@ form {
 }
 
 .input-holder {
-    //width: 85px;
+    width: 100%;
     label {
       color: $smokey-grey;
       font-weight: 530;
@@ -91,6 +91,7 @@ form {
     p {
       color: $light-red;
       display: block;
+      font-size: 15px;
       min-height: 35px;
       font-style: italic;
     }
@@ -111,7 +112,7 @@ form {
 }
 
 .age {
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 900;
   color: $off-black;
   line-height: 0.25;
