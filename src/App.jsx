@@ -111,7 +111,7 @@ function App() {
     if (year === currentYear && month > currentMonth) monthErrMsg = "Must be in the past";
     if (year === currentYear && month === currentMonth && day > currentDay) dayErrMsg = "Must be in the past";
     if (day > 31 || day < 1) dayErrMsg = "Must be a valid day";
-    if (year < 500) yearErrMsg = "What are you? A dinosaur?";
+    if (year < 1000) yearErrMsg = "What are you? A dinosaur?";
 
     // Check for invalid date (e.g., February 30)
     const date = new Date(year, month - 1, day);
@@ -157,6 +157,7 @@ function App() {
               min={1}
               max={31}
               className={errorField.day ? "input-error" : ""}
+              placeholder="DD"
               id="day"
               name="day"
               value={inputs.day || ""}
@@ -174,6 +175,7 @@ function App() {
               className={errorField.month ? "input-error" : ""}
               id="month"
               name="month"
+              placeholder="MM"
               value={inputs.month || ""}
               onChange={handleChange}
             />
@@ -188,6 +190,7 @@ function App() {
               className={errorField.year ? "input-error" : ""}
               id="year"
               name="year"
+              placeholder="YYYY"
               value={inputs.year || ""}
               onChange={handleChange}
             />
