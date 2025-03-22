@@ -1,0 +1,158 @@
+@use "sass:math";
+* {
+  box-sizing: border-box;
+}
+$purple: hsl(259, 100%, 65%);
+$light-red: hsl(0, 100%, 67%);
+
+$white: hsl(0, 0%, 100%);
+$off-white: hsl(0, 0%, 94%);
+$light-grey: hsl(0, 0%, 86%);
+$smokey-grey: hsl(0, 1%, 44%);
+$off-black: hsl(0, 0%, 8%);
+
+@mixin box($padding: 0, $width: 100%, $margin: 0) {
+  width: $width;
+  padding: $padding;
+  margin: $margin;
+}
+
+body {
+  @include box($padding: 100px 20px, $width: 100%);
+  height: 100vh;
+  background: $off-white;
+  font-family: poppins;
+}
+
+#container {
+  @include box($padding: 40px 20px);
+  //height: 500px;
+  border-radius: 20px 20px 120px;
+  background: $white;
+}
+
+form {
+  @include box($margin: 0 0 80px);
+  height: 140px;
+  position: relative;
+  border-bottom: 1px solid $light-grey;
+  
+  #submit {
+    $size: 60px;
+    position: absolute;
+    left: calc((100% - $size) / 2);
+    bottom: math.div(-$size, 2);
+    background: $purple;
+    width: $size; height: $size;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    &:hover {
+      background: $off-black;
+    }
+
+   img {
+     width: 30px;
+   }
+  }
+}
+
+#input-box {
+  @include box;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.input-holder {
+    //width: 85px;
+    label {
+      color: $smokey-grey;
+      font-weight: 530;
+      letter-spacing: 2px;
+
+    }
+    input {
+      margin-top: 5px;
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      border-radius: 10px;
+      border: 1px solid $light-grey;
+      outline: none;
+      color: $off-black;
+      font-size: 20px;
+      font-weight: 550;
+      cursor: pointer;
+      &:focus, &:hover {
+        border: 1px solid $purple;
+      }
+    }
+    p {
+      color: $light-red;
+      display: block;
+      min-height: 35px;
+      font-style: italic;
+    }
+
+    .input-error {
+      border: 1px solid $light-red;
+      &:focus, &:hover {
+        border: 1px solid $light-red;
+      }
+    }
+    .label-error {
+      color: $light-red;
+      &:focus, &:hover {
+        color: $light-red;
+      }
+    }
+    
+}
+
+.age {
+  font-size: 50px;
+  font-weight: 900;
+  color: $off-black;
+  line-height: 0.25;
+  font-style: italic;
+  span {
+    color: $purple;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #container {
+    width: 700px;
+    padding: 40px;
+  }
+  
+  form {
+    #submit {
+      $size: 60px;
+      left: calc(100% - $size);
+    }
+  }
+  
+  #input-box {
+    width: 70%;
+    gap: 20px;
+  }
+  
+  .age {
+   // line-height: 0.5;
+    font-size: 80px;
+  }
+  
+  .input-holder input {
+    font-size: 30px; 
+    font-weight: 600;
+  }
+}
